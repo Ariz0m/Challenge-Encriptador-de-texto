@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Encriptador de texto</title>
+</head>
+<body>
+  <img class="logo" src="img/Logo.png" alt="Logo">
+  <main>
+    <header>
+      <div>
+        <input type="text" name="texto" id="area-texto">
+      </div>
+    </header>
+    <div class="caja-texto">
+      <h1 id="titulo-caja"></h1>
+      <p id="parrafo-caja"></p>
+    </div>
+    <div id="botones">
+      <button onclick="encriptar('encriptar');" id="encriptar">Encriptar</button>
+      <button onclick="encriptar('desencriptar');" id="desencriptar">Desencriptar</button>
+    </div>
+  </main>
+  <footer>Hecho por Arizom. 16/03/2024</footer>
+  <script src="app.js"></script>
+</body>
+</html>

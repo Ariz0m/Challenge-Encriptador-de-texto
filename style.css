@@ -1,0 +1,17 @@
+body{
+    background-color: #F3F5FC;
+}
+
+.logo{
+    margin-top: 40px;
+    margin-left: 40px;
+    display: inline;
+    margin-bottom: 40px;
+}
+
+#areatexto{
+    width: 577px;
+    height: 48px;
+    margin-left: 240px;
+    display: inline;
+}
