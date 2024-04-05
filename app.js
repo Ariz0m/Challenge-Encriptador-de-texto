@@ -64,14 +64,24 @@ function encriptador(textoPlano, lista) {
         palabras = parseInt(palabras);
         let palabra = textoDividido[palabras];
         console.log(`El array a encriptar es: ${palabra}`);
-        for (let i = 0; i < textoDividido[palabras].length; ) {
+        for (let i = 0; i < palabra.length; ) {
             console.log(`Se está recorriendo la palabra ${palabra}. La longitud de la palabra es ${palabra.length}.`);
             if (buscarCoincidencia(palabra[i], lista)) {
+                console.log(`El valor de i es ${i}.`);
                 let pos = buscarPosicion(palabra[i], lista);
-                textoDividido[palabras] = i > 0 ? `${palabra.substring(0, i)}${otraLista(lista)[pos]}${palabra.substring(i + 1)}` : `${otraLista(lista)[pos]}${palabra.substring(i + 1)}`;
-                console.log(textoDividido[palabras]);
-                i += otraLista(lista)[pos].length - 1;
-            } else {
+                if (i === palabra.length - 1) {    
+                    textoDividido[palabras] = i > 0 ? `${palabra.substring(0, i)}${otraLista(lista)[pos]}${palabra.substring(i + 1)}` : `${otraLista(lista)[pos]}${palabra.substring(i + 1)}`;
+                    console.log(`La parte del array ahora es: ${textoDividido[palabras]}`);
+                    palabra = textoDividido[palabras];
+                    break;
+                }
+                else {
+                    textoDividido[palabras] = i > 0 ? `${palabra.substring(0, i)}${otraLista(lista)[pos]}${palabra.substring(i + 1)}` : `${otraLista(lista)[pos]}${palabra.substring(i + 1)}`;
+                    console.log(`La parte del array ahora es: ${textoDividido[palabras]}`);
+                    palabra = textoDividido[palabras];
+                    i += otraLista(lista)[pos].length - 1;
+                }
+            } else if (!buscarCoincidencia(palabra[i], lista)) {
                 i++;
                 console.log(`Debido a que no se encontraron coincidencias, se pasa a la siguiente letra.`);
             }
@@ -80,6 +90,8 @@ function encriptador(textoPlano, lista) {
     console.log(`El texto encriptado es ${textoDividido.join(' ')}.`);
     return textoDividido.join(' ');
 }
+
+//Esto solo es para ver si se pone si recuerdo bien cómo usar los comandos de git.
 
 function buscarCoincidencia(n, r) {
     console.log(`Se están buscando las coincidencias de ${n} en ${r}`);
