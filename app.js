@@ -55,12 +55,9 @@ function validador(textoPlano, lista) {
 }
 
 function encriptador(textoPlano, lista) {
-    console.log('Se está empezando a encriptar el texto.');
     let textoDividido = textoPlano.split(' ');
-    console.log(textoDividido);
     for (palabras in textoDividido) {
         let palabra = textoDividido[palabras];
-        console.log(`El array a encriptar es: ${palabra}.`);
         if (lista === vocales) {
             for (let i = 0; i < palabra.length; ) {
                 console.log(`Se está recorriendo la palabra ${palabra}.`);
