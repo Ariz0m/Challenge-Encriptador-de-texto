@@ -11,7 +11,7 @@ function condicionesIniciales() {
     document.getElementById('area-texto').setAttribute('placeholder', 'Ingrese el texto aquí.');
     asignarTexto('titulo-caja', 'Ningún mensaje fue encontrado.');
     asignarTexto('parrafo-caja', 'Ingresa el texto que desees encriptar o desencriptar.');
-    console.log(`Se han preparado las condicones iniciales de la página.`);
+    console.log(`Se han preparado las condiciones iniciales de la página.`);
 }
 
 function mensajeNoValido() {
