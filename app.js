@@ -14,12 +14,6 @@ function condicionesIniciales() {
     console.log(`Se han preparado las condicones iniciales de la página.`);
 }
 
-function limpiarRecuadro() {
-    asignarTexto('titulo-caja', '');
-    asignarTexto('parrafo-caja', '');
-    console.log('Se limpió el recuadro de texto.');
-}
-
 function mensajeNoValido() {
     asignarTexto('titulo-caja', 'El texto ingresado no es válido.');
     asignarTexto('parrafo-caja', 'Por favor, ingrese otro mensaje.');
@@ -36,7 +30,7 @@ function encriptar(accion) {
     let lista = contenidoARevisar(accion);
     console.log(`El texto ingresado fue ${textoPlano} y la lista que se se usará es ${lista}.`);
     if (validador(textoPlano, lista)) {
-        limpiarRecuadro();
+        asignarTexto('parrafo-caja', '');
         asignarTexto('titulo-caja', encriptador(textoPlano, lista));
     }
 }
@@ -48,7 +42,6 @@ function validador(textoPlano, lista) {
             return true;
         }
         else if(contenido === lista.length - 1) {
-            limpiarRecuadro();
             mensajeNoValido();
         }
     }
