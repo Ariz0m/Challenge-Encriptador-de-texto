@@ -1,17 +1,24 @@
-body{
+body {
     background-color: #F3F5FC;
 }
 
-.logo{
+.logo {
     margin-top: 40px;
     margin-left: 40px;
     margin-bottom: 40px;
 }
 
-#areatexto{
-    width: 577px;
-    height: 48px;
+textarea {
+    field-sizing: content;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-variation-settings:"slnt" 0;
     margin-left: 240px;
+    border: none;
+    background-color: #F3F5FC;
+    color: #0A3871;
 }
 
 #texto-signo {

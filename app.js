@@ -7,16 +7,9 @@ function obtenerTexto(elemento) {
     return document.getElementById(elemento).value;
 }
 
-function condicionesIniciales() {
-    document.getElementById('area-texto').setAttribute('placeholder', 'Ingrese el texto aquí.');
-    asignarTexto('parrafo-caja', 'Ingresa el texto que desees encriptar o desencriptar.');
-    console.log(`Se han preparado las condiciones iniciales de la página.`);
-}
-
 function mensajeNoValido() {
     asignarTexto('titulo-caja', 'El texto ingresado no es válido.');
     asignarTexto('parrafo-caja', 'Por favor, ingrese otro mensaje.');
-    console.log('Se ingresó un mensaje no válido.');
 }
 
 const contenidoARevisar = accion => accion === 'encriptar' ? vocales : encriptadas;
@@ -29,8 +22,9 @@ function encriptar(accion) {
     let lista = contenidoARevisar(accion);
     console.log(`El texto ingresado fue ${textoPlano} y la lista que se se usará es ${lista}.`);
     if (validador(textoPlano, lista)) {
-        asignarTexto('parrafo-caja', '');
         asignarTexto('titulo-caja', encriptador(textoPlano, lista));
+        asignarTexto('parrafo-caja', ''); //TODO: Create copiar button
+
     }
 }
 
@@ -126,4 +120,19 @@ function buscarPosicion(elemento, lista) {
     }
 }
 
-condicionesIniciales();
+function crearBotonCopiar() {
+    let parentElement = document.getElementById('caja-texto');
+    let texto = document.createTextNode('Copiar');
+    let newElement = document.createElement()
+    parentElement.appendChild() //TODO: Append child to make a new button
+}
+
+async function copiarContenido() {
+    let texto = obtenerTexto('titulo-caja');
+    try {
+      await navigator.clipboard.writeText(texto);
+      console.log('Contenido copiado al portapapeles');
+    } catch (err) {
+      alert('Error al copiar: ', err);
+    }
+  }
