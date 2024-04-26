@@ -126,7 +126,6 @@ function crearBotonCopiar() {
     newElement.innerHTML = 'Copiar';
     newElement.onclick = copiarContenido;
     let parentElement = document.querySelector('.caja-texto');
-    console.warn(typeof(newElement), newElement);
     parentElement.appendChild(newElement);
 }
 
