@@ -23,8 +23,8 @@ function encriptar(accion) {
     console.log(`El texto ingresado fue ${textoPlano} y la lista que se se usará es ${lista}.`);
     if (validador(textoPlano, lista)) {
         asignarTexto('titulo-caja', encriptador(textoPlano, lista));
-        asignarTexto('parrafo-caja', ''); //TODO: Create copiar button
-
+        document.getElementById('parrafo-caja').remove();
+        crearBotonCopiar();
     }
 }
 
@@ -121,14 +121,17 @@ function buscarPosicion(elemento, lista) {
 }
 
 function crearBotonCopiar() {
-    let parentElement = document.getElementById('caja-texto');
-    let texto = document.createTextNode('Copiar');
-    let newElement = document.createElement()
-    parentElement.appendChild() //TODO: Append child to make a new button
+    let newElement = document.createElement("button");
+    newElement.id = 'copiar';
+    newElement.innerHTML = 'Copiar';
+    newElement.onclick = copiarContenido;
+    let parentElement = document.querySelector('.caja-texto');
+    console.warn(typeof(newElement), newElement);
+    parentElement.appendChild(newElement);
 }
 
 async function copiarContenido() {
-    let texto = obtenerTexto('titulo-caja');
+    let texto = document.getElementById('titulo-caja').innerHTML;
     try {
       await navigator.clipboard.writeText(texto);
       console.log('Contenido copiado al portapapeles');
