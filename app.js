@@ -120,6 +120,7 @@ function buscarPosicion(elemento, lista) {
 
 function crearBotonCopiar() {
     if (!controlDeBoton) {
+        document.getElementById("muñeco").remove();
         document.getElementById('parrafo-caja').remove();
         let newElement = document.createElement("button");
         newElement.id = 'copiar';

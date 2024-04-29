@@ -21,6 +21,14 @@ textarea {
     color: #0A3871;
 }
 
+#muñeco {
+    position: absolute;
+    left: 0.02%;
+    right: -0.01%;
+    top: 0.06%;
+    bottom: -0.07%;
+}
+
 #texto-signo {
     display: inline;
 }
