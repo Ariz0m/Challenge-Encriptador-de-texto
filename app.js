@@ -3,23 +3,24 @@ function asignarTexto(elemento, texto) {
     elementoHTML.innerHTML = texto;
 }
 
-function obtenerTexto(elemento) {
-    return document.getElementById(elemento).value;
-}
-
-function mensajeNoValido() {
-    asignarTexto('titulo-caja', 'El texto ingresado no es válido.');
-    asignarTexto('parrafo-caja', 'Por favor, ingrese otro mensaje.');
+function obtenerTexto() {
+    return document.getElementById('area-texto').value;
 }
 
 const contenidoARevisar = accion => accion === 'encriptar' ? vocales : encriptadas;
 let otraLista = lista => lista === vocales ? encriptadas : vocales;
 const vocales = ['e', 'i', 'a', 'o', 'u'];
 const encriptadas = ['enter', 'imes', 'ai', 'ober', 'ufat'];
-let controlDeBoton = false;
+var controlDeBoton = false;
+
+function validarTexto() {
+    let texto = obtenerTexto();
+    texto = texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    document.getElementById('area-texto').value = texto;
+}
 
 function encriptar(accion) {
-    let textoPlano = obtenerTexto('area-texto');
+    let textoPlano = obtenerTexto();
     let lista = contenidoARevisar(accion);
     console.log(`El texto ingresado fue ${textoPlano} y la lista que se se usará es ${lista}.`);
     if (validador(textoPlano, lista)) {
@@ -33,9 +34,6 @@ function validador(textoPlano, lista) {
         if (textoPlano.includes(lista[contenido])) {
             console.log(`${textoPlano} es un texto válido y se encriptará.`);
             return true;
-        }
-        else if(contenido === lista.length - 1) {
-            mensajeNoValido();
         }
     }
 }
@@ -129,6 +127,7 @@ function crearBotonCopiar() {
         newElement.onclick = copiarContenido;
         let parentElement = document.querySelector('.caja-texto');
         parentElement.appendChild(newElement);
+        controlDeBoton = true;
     }
 }
 
