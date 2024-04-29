@@ -1,6 +1,6 @@
 function asignarTexto(elemento, texto) {
     let elementoHTML = document.getElementById(elemento);
-    elementoHTML.innerText = texto;
+    elementoHTML.innerHTML = texto;
 }
 
 function obtenerTexto(elemento) {
@@ -16,6 +16,7 @@ const contenidoARevisar = accion => accion === 'encriptar' ? vocales : encriptad
 let otraLista = lista => lista === vocales ? encriptadas : vocales;
 const vocales = ['e', 'i', 'a', 'o', 'u'];
 const encriptadas = ['enter', 'imes', 'ai', 'ober', 'ufat'];
+let controlDeBoton = false;
 
 function encriptar(accion) {
     let textoPlano = obtenerTexto('area-texto');
@@ -23,7 +24,6 @@ function encriptar(accion) {
     console.log(`El texto ingresado fue ${textoPlano} y la lista que se se usará es ${lista}.`);
     if (validador(textoPlano, lista)) {
         asignarTexto('titulo-caja', encriptador(textoPlano, lista));
-        document.getElementById('parrafo-caja').remove();
         crearBotonCopiar();
     }
 }
@@ -121,12 +121,15 @@ function buscarPosicion(elemento, lista) {
 }
 
 function crearBotonCopiar() {
-    let newElement = document.createElement("button");
-    newElement.id = 'copiar';
-    newElement.innerHTML = 'Copiar';
-    newElement.onclick = copiarContenido;
-    let parentElement = document.querySelector('.caja-texto');
-    parentElement.appendChild(newElement);
+    if (!controlDeBoton) {
+        document.getElementById('parrafo-caja').remove();
+        let newElement = document.createElement("button");
+        newElement.id = 'copiar';
+        newElement.innerHTML = 'Copiar';
+        newElement.onclick = copiarContenido;
+        let parentElement = document.querySelector('.caja-texto');
+        parentElement.appendChild(newElement);
+    }
 }
 
 async function copiarContenido() {
