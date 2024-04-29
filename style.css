@@ -1,5 +1,6 @@
 body {
     background-color: #F3F5FC;
+    height: 100%;
 }
 
 .logo {
@@ -19,14 +20,65 @@ textarea {
     border: none;
     background-color: #F3F5FC;
     color: #0A3871;
+    font-size: 32px;
+}
+
+.caja-texto {
+    text-align: center;
+    float: right;
+    margin: 0 1.5%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: 0;
+    height: 500px;
+    background-color: #FFFFFF;
 }
 
 #muñeco {
-    position: absolute;
     left: 0.02%;
     right: -0.01%;
     top: 0.06%;
     bottom: -0.07%;
+    width: 90%;
+}
+
+#titulo-caja {
+    font-size: 24px;
+    color: #0A3871;
+    font-weight: bold;
+}
+
+#parrafo-caja {
+    color: #495057;
+    font-size: 16px;
+}
+
+#copiar {
+    position: fixed;
+    
+}
+
+#aviso {
+    margin-top: 29%;
+}
+
+.boton {
+    border-color: #000000;
+    border-radius: 24px;
+    height: 67px;
+    width: Fixed (336px);
+    background-color: #ffffff;
+    padding: 24px;
+    gap: 8px;
+}
+
+#encriptar {
+    background-color: #0A3871;
+    color: #FFFFFF;
 }
 
 #texto-signo {
